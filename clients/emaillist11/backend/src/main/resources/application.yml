@@ -50,16 +50,16 @@ spring:
          client:
             provider:
                 keycloak-authorization-server:
-                   issuer-uri: http://localhost:5555/realms/poscodx2023-realm
-                   authorization-uri: http://localhost:5555/realms/poscodx2023-realm/protocol/openid-connect/auth
-                   token-uri: http://localhost:5555/realms/poscodx2023-realm/protocol/openid-connect/token
+                   issuer-uri: http://localhost:5555/realms/poscodx2024-realm
+                   authorization-uri: http://localhost:5555/realms/poscodx2024-realm/protocol/openid-connect/auth
+                   token-uri: http://localhost:5555/realms/poscodx2024-realm/protocol/openid-connect/token
             registration:
                 emaillist-oauth2-client:
                    provider: keycloak-authorization-server                  
                    authorization-grant-type: authorization_code
                    redirect-uri: "http://localhost:8080/login/oauth2/code/{registrationId}"
                    client-id: emaillist
-                   client-secret: 649Yde3fNbCBxHG2AxAI8zF70M5R9PjM
+                   client-secret: XMZRP5V2wWV04f977J6JLnWGc7BImNrH
                    scope: [openid, profile, email, roles]
 
 server:
@@ -86,14 +86,14 @@ spring:
          client:
             provider:
                 keycloak-authorization-server:
-                   issuer-uri: http://192.168.66.4:5555/realms/poscodx2023-realm
-                   authorization-uri: http://192.168.66.4:5555/realms/poscodx2023-realm/protocol/openid-connect/auth
-                   token-uri: http://192.168.66.4:5555/realms/poscodx2023-realm/protocol/openid-connect/token
+                   issuer-uri: http://192.168.64.7:5555/realms/poscodx2024-realm
+                   authorization-uri: http://192.168.64.7:5555/realms/poscodx2024-realm/protocol/openid-connect/auth
+                   token-uri: http://192.168.64.7:5555/realms/poscodx2024-realm/protocol/openid-connect/token
             registration:
                 emaillist-oauth2-client:
                    provider: keycloak-authorization-server                  
                    authorization-grant-type: authorization_code
-                   redirect-uri: "http://192.168.66.4:8080/login/oauth2/code/{registrationId}"
+                   redirect-uri: "http://192.168.64.7:8080/login/oauth2/code/{registrationId}"
                    client-id: emaillist
                    client-secret: 649Yde3fNbCBxHG2AxAI8zF70M5R9PjM
                    scope: [openid, profile, email, roles]

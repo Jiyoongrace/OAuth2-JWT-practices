@@ -34,7 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Config {
 
 	@Bean
-	SecurityFilterChain scurityFilterChain(HttpSecurity http, RestTemplate restTemplate) throws Exception {
+	SecurityFilterChain securityFilterChain(HttpSecurity http, RestTemplate restTemplate) throws Exception {
         http
         	.csrf(csrf -> csrf.disable())
             .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -72,8 +72,6 @@ public class Config {
 
 		});
 		
-//		OAuth2LoginAuthenticationFilter a;
-		
 		return http.build();
 	}
 
@@ -98,7 +96,7 @@ public class Config {
 				//
 				// Discard Access Token
 				// Grant Flow의 User Agent(Browser)에서 실행되는 JS 클라이언트(React)에게
-				// Access Token 전달이 부자연스럽기 때문에 최초 Access Token은 그냥 버림.
+				// Access Token 전달이 부자연스럽기 때문에 최초 Access Token은 폐기
 	    		//
 				OAuth2AccessToken accessToken = oAuth2AuthorizedClient.getAccessToken();
 	            log.info("OAuth2: Authorized JWT: Access Token:" + accessToken.getTokenValue());
@@ -110,24 +108,24 @@ public class Config {
 	            log.info("OAuth2: Authorized JWT: Refresh Token:" + refreshToken.getTokenValue());
 	            
 	            
-	            //*
+	            
 	            response.getWriter().println("AccessToken:" + accessToken.getTokenValue());
-	            response.getWriter().println("Refresh Token:" + refreshToken.getTokenValue());
+	            response.getWriter().println("Refresh Token:" + refreshToken.getTokenValue());/*
 	            /*/ 
-	            ResponseCookie cookie = ResponseCookie
-	                    .from("refreshToken", refreshToken.getTokenValue())
-	                	.path("/")
-	                	.maxAge(60*60*24)	// 1day
-	                	.secure(false)		// over HTTPS (x)
-	                	.httpOnly(true)		// Prevent Cross-site scripting (XSS): JavaScript code cannot read or modify
-	                	.sameSite("strict")	// Prevent CSRF attacks
-	                	.build();
-
-	            response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY); // 302
-	            response.setHeader("Cache=Control", "no-cache, no-store, must-revalidate");	            
-	            response.setHeader("Pragma", "no-cache");	            
-	            response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());	
-	            response.sendRedirect("/"); // 클라이언트(React) 애플리케이션 랜딩!									
+//	            ResponseCookie cookie = ResponseCookie
+//	                    .from("refreshToken", refreshToken.getTokenValue())
+//	                	.path("/")
+//	                	.maxAge(60*60*24)	// 1day
+//	                	.secure(false)		// over HTTPS (x)
+//	                	.httpOnly(true)		// Prevent Cross-site scripting (XSS): JavaScript code cannot read or modify
+//	                	.sameSite("strict")	// Prevent CSRF attacks
+//	                	.build();
+//
+//	            response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY); // 302
+//	            response.setHeader("Cache=Control", "no-cache, no-store, must-revalidate");	            
+//	            response.setHeader("Pragma", "no-cache");	            
+//	            response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());	
+//	            response.sendRedirect("/"); // 클라이언트(React) 애플리케이션 랜딩!									
 	            //*/
 			}
     	};
