@@ -12,7 +12,7 @@ require("dotenv").config();
             expiresIn: '1s'     // 1초
         };
 
-        var token = jwt.sign({ id: 1, name: 'kickscar', profileImage: 'profile.jpg' }, process.env.ACCESS_TOKEN_SECRET, options);
+        var token = jwt.sign({ id: 1, name: 'jiyoon', profileImage: 'profile.jpg' }, process.env.ACCESS_TOKEN_SECRET, options);
         console.log(token);
 
         await new Promise(resolve => setTimeout(resolve, 2000));

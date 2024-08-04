@@ -122,10 +122,10 @@ public class Config {
 //	                	.build();
 //
 //	            response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY); // 302
-//	            response.setHeader("Cache=Control", "no-cache, no-store, must-revalidate");	            
-//	            response.setHeader("Pragma", "no-cache");	            
-//	            response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());	
-//	            response.sendRedirect("/"); // 클라이언트(React) 애플리케이션 랜딩!									
+//	            response.setHeader("Cache=Control", "no-cache, no-store, must-revalidate");
+//	            response.setHeader("Pragma", "no-cache");
+//	            response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+//	            response.sendRedirect("/"); // 클라이언트(React) 애플리케이션 랜딩!
 	            //*/
 			}
     	};

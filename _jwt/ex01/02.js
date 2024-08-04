@@ -7,7 +7,7 @@ try {
         algorithm: 'HS256'
     };
 
-    let token = jwt.sign({ id: 1, name: 'kickscar', profileImage: 'profile.jpg' }, process.env.ACCESS_TOKEN_SECRET, options);
+    let token = jwt.sign({ id: 1, name: 'jiyoon', profileImage: 'profile.jpg' }, process.env.ACCESS_TOKEN_SECRET, options);
     token = token.toUpperCase();
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);

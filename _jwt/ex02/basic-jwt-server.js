@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.post("/auth", (req, res) => {
     const account = {
         id: 1,
-        name: 'kickscar',
+        name: 'jiyoon',
         profileImage: ''
     };
 

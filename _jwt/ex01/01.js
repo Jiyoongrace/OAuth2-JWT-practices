@@ -14,13 +14,13 @@ const options2 = {
     expiresIn: '24h' // 24hours  
 };
 
-const token1 = jwt.sign({ id: 1, name: 'kickscar', profileImage: 'profile.jpg' }, process.env.ACCESS_TOKEN_SECRET, options1);
-const token2 = jwt.sign({ id: 1, name: 'kickscar', profileImage: 'profile.jpg' }, process.env.ACCESS_TOKEN_SECRET, options2);
+const token1 = jwt.sign({ id: 1, name: 'jiyoon', profileImage: 'profile.jpg' }, process.env.ACCESS_TOKEN_SECRET, options1);
+const token2 = jwt.sign({ id: 1, name: 'jiyoon', profileImage: 'profile.jpg' }, process.env.ACCESS_TOKEN_SECRET, options2);
 
-const verifyed1 = jwt.verify(token1, process.env.ACCESS_TOKEN_SECRET);
+const verified1 = jwt.verify(token1, process.env.ACCESS_TOKEN_SECRET);
 console.log(token1);
-console.log(verifyed1);
+console.log(verified1);
 
-const verifyed2 = jwt.verify(token2, process.env.ACCESS_TOKEN_SECRET);
+const verified2 = jwt.verify(token2, process.env.ACCESS_TOKEN_SECRET);
 console.log(token2);
-console.log(verifyed2);
+console.log(verified2);
